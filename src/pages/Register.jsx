@@ -1,20 +1,27 @@
 import {useState} from "react";
 import {register} from "../config/firebase";
+import {useRedirectUser} from "../hooks/useRedirectActiveUSer";
+import {useUserContext} from "../context/UserContext";
 
 const Register = () => {
   const [email, setEmail] = useState("");
+
   const [password, setPassword] = useState("");
+
+  const {user} = useUserContext();
+  useRedirectUser(user, "/dashboard");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("me diste submit");
     try {
-     const credentialUser = await register({email, password});
-     console.log(credentialUser)
+      const credentialUser = await register({email, password});
+      console.log(credentialUser);
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <>
       <h1>Register</h1>
