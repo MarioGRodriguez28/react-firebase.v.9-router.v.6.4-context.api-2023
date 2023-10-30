@@ -1,4 +1,4 @@
-import {initializeApp} from "firebase/app";
+import { initializeApp } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -19,14 +19,10 @@ const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
 
-export const login = ({email, password}) => {
-  return signInWithEmailAndPassword(auth, email, password);
-};
-export const register = ({email, password}) => {
-  return createUserWithEmailAndPassword(auth, email, password);
-};
+export const login = ({ email, password }) =>
+  signInWithEmailAndPassword(auth, email, password);
 
-export const logout = () => {
-  return signOut
-  (auth);
-};
+export const register = ({ email, password }) =>
+  createUserWithEmailAndPassword(auth, email, password);
+
+export const logOut = () => signOut(auth);

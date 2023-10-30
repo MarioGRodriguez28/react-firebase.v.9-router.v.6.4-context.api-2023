@@ -1,18 +1,17 @@
-import {logout} from "../config/firebase";
+import {Button} from "@mui/material";
+import {logOut} from "../config/firebase";
 
 const Dashboard = () => {
   const handleLogout = async () => {
-    try {
-      await logout();
-    } catch (error) {
-      console.log(error);
-    }
+    await logOut();
   };
 
   return (
     <>
-      <h1>Dashboard (ruta protegida)</h1>
-      <button onClick={handleLogout}>Logout</button>
+      <h1>Dashboard</h1>
+      <Button variant="contained" onClick={handleLogout}>
+        LogOut
+      </Button>
     </>
   );
 };
