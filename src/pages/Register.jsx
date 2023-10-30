@@ -1,40 +1,33 @@
-import { Formik } from "formik";
+import {Formik} from "formik";
 import * as Yup from "yup";
-import { register } from "../config/firebase";
-import { useUserContext } from "../context/UserContext";
+import {register} from "../config/firebase";
+import {useUserContext} from "../context/UserContext";
 import {useRedirectUser} from "../hooks/useRedirectActiveUSer";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-import {
-  Avatar,
-  Box,
-  Button,
-  Grid,
-  TextField,
-  Typography,
-} from "@mui/material";
+import {Avatar, Box, Button, Grid, TextField, Typography} from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { LoadingButton } from "@mui/lab";
+import {LoadingButton} from "@mui/lab";
 
 const Register = () => {
-  const { user } = useUserContext();
+  const {user} = useUserContext();
 
   // alternativa con hook
   useRedirectUser(user, "/dashboard");
 
   const onSubmit = async (
-    { email, password },
-    { setSubmitting, setErrors, resetForm }
+    {email, password},
+    {setSubmitting, setErrors, resetForm}
   ) => {
     try {
-      await register({ email, password });
+      await register({email, password});
       console.log("user registered");
       resetForm();
     } catch (error) {
       console.log(error.code);
       console.log(error.message);
       if (error.code === "auth/email-already-in-use") {
-        setErrors({ email: "Email already in use" });
+        setErrors({email: "Email already in use"});
       }
     } finally {
       setSubmitting(false);
@@ -57,9 +50,8 @@ const Register = () => {
           maxWidth: 400,
           mx: "auto",
           textAlign: "center",
-        }}
-      >
-        <Avatar sx={{ mx: "auto", bgcolor: "secondary.main" }}>
+        }}>
+        <Avatar sx={{mx: "auto", bgcolor: "secondary.main"}}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
@@ -67,10 +59,9 @@ const Register = () => {
         </Typography>
 
         <Formik
-          initialValues={{ email: "", password: "" }}
+          initialValues={{email: "", password: ""}}
           onSubmit={onSubmit}
-          validationSchema={validationSchema}
-        >
+          validationSchema={validationSchema}>
           {({
             handleChange,
             handleSubmit,
@@ -80,9 +71,9 @@ const Register = () => {
             touched,
             handleBlur,
           }) => (
-            <Box onSubmit={handleSubmit} component="form" sx={{ mt: 1 }}>
+            <Box onSubmit={handleSubmit} component="form" sx={{mt: 1}}>
               <TextField
-                sx={{ mb: 3 }}
+                sx={{mb: 3}}
                 fullWidth
                 label="Email Address"
                 id="email"
@@ -113,12 +104,11 @@ const Register = () => {
               <LoadingButton
                 variant="contained"
                 color="secondary"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{mt: 3, mb: 2}}
                 fullWidth
                 type="submit"
                 disabled={isSubmitting}
-                loading={isSubmitting}
-              >
+                loading={isSubmitting}>
                 Register
               </LoadingButton>
               <Grid container>
