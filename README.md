@@ -1,7 +1,6 @@
 Claro, aquí tienes el código completo en formato Markdown para tu archivo README:
 
 markdown
-Copy code
 # Proyecto Desde Cero
 
 Este proyecto es un ejemplo de una aplicación web desarrollada con React y Firebase, utilizando Vite como herramienta de desarrollo y Material-UI para la interfaz de usuario. La aplicación incluye características de registro, inicio de sesión y un panel de control de usuario.
@@ -18,16 +17,15 @@ Asegúrate de tener Node.js instalado en tu sistema.
 git clone https://github.com/MarioGRodriguez28/react-firebase.v.9-router.v.6.4-context.api-2023
 Navega al directorio del proyecto:
 bash
-Copy code
 cd react-firebase.v.9-router.v.6.4-context.api-2023
 Instala las dependencias:
 bash
-Copy code
+
 npm install
 Uso
 Inicia la aplicación en modo de desarrollo:
 bash
-Copy code
+
 npm run dev
 Esto iniciará la aplicación en un servidor de desarrollo local. Abre tu navegador y accede a http://localhost:3000 para ver la aplicación en funcionamiento.
 
@@ -58,7 +56,7 @@ Este proyecto se encuentra bajo la Licencia MIT. Para más detalles, consulta el
 Creado con ❤️ por [Mario]
 
 bash
-Copy code
+
 
 
 
